@@ -1,0 +1,43 @@
+{
+    "name": "ppx_core",
+    "optionalDependencies": {},
+    "exportedEnvVars": {
+        "ppx_core_version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "113.33.03"
+        },
+        "PATH": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/bin"
+        },
+        "version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "113.33.03"
+        },
+        "FINDLIB": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/lib"
+        }
+    },
+    "version": "113.33.03",
+    "dependencies": {
+        "ocamlbuild": "https://github.com/npm-opam/ocamlbuild",
+        "ocamlfind": "https://github.com/npm-opam/ocamlfind",
+        "ocaml": "https://github.com/npm-opam/ocaml.git#npm-4.02.3",
+        "dependency-env": "https://github.com/npm-ml/dependency-env.git",
+        "substs": "https://github.com/yunxing/substs.git",
+        "js-build-tools": "https://github.com/npm-opam/js-build-tools",
+        "ppx_tools": "https://github.com/npm-opam/ppx_tools",
+        "nopam": "https://github.com/yunxing/nopam.git",
+        "opam-installer-bin": "https://github.com/yunxing/opam-installer-bin.git"
+    },
+    "scripts": {
+        "postinstall": "eval $(dependencyEnv) && nopam && ./configure --prefix $opam_prefix && make && (opam-installer --prefix=$opam_prefix || true) && injectOpamEnvs"
+    }
+}
